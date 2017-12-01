@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Writing game</title>
+    <meta name="description" content="Writing game, write as quickly as you can the word presented to you">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <h1>Writing game</h1>
+    <p>Choose the difficulty to start</p>
+    <ul>
+      <li>Easy mode: words 4 letter long</li>
+      <li>Medium mode: words 6 letter long</li>
+      <li>Hard mode: words +7 letter long</li>
+      <li>Mix them Up!: all the words mixed</li>
+    </ul>
+    <div class="buttonCenter">
+      <button id="easy">Easy</button>
+      <button id="medium">Medium</button>
+      <button id="hard">Hard</button>
+      <button id="mix">Mix them Up!</button>
+      
+      <div class="container">
+        <form >
+          <input type="text" id="input">
+        </form>
+        <div class="displayWord">
+        </div>
+        <div class="finalPoints"></div>
+      </div>
+      
+      <script src="js/app.js" async></script>
+    </body>
+  </html>

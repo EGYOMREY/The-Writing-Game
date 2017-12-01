@@ -1,0 +1,52 @@
+body{
+	background-color: lightslategrey;
+	font-family: Raleway;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+ul{
+	list-style: none;
+}
+
+.container {
+    width: 90vw;
+    margin: auto;
+
+}
+
+.buttonCenter{
+	position: relative;
+	margin: auto;
+}
+
+button {
+	border:  none;
+	padding: 1em;
+	margin: 0.5em;
+	background-color: lightsalmon;
+	color: brown;
+	font-size: 1.1em;
+	border-radius: 8px;
+	
+	cursor: pointer;
+}
+
+form {
+	position: relative;
+	
+	margin: auto;
+}
+
+
+#input{
+	padding: 1em;
+	border-radius: 8px;
+	margin: auto;
+}
+
+.displayWord{
+	padding: 1em;
+	
+}
