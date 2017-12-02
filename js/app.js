@@ -34,46 +34,15 @@ var timerNumber;
 var intervalID;
 var buttonClicked;
 
-// Add event listeners to each button.
-easyMode.addEventListener('click', function(e) {
-    buttonClicked = e.target.id;
-    reset();
-    easyResetCountdown();
-    input.focus();
-    intervalID = setInterval(theCountdown, 600);
-    words = easyArray.slice();
-    randomize();
-});
 
-mediumMode.addEventListener('click', function(e) {
+function beginGame (e){
     buttonClicked = e.target.id;
     reset();
-    mediumResetCountdown();
+    validation();
     input.focus();
     intervalID = setInterval(theCountdown, 600);
-    words = mediumArray.slice();
     randomize();
-});
-
-hardMode.addEventListener('click', function(e) {
-    buttonClicked = e.target.id;
-    reset();
-    hardResetCountdown();
-    input.focus();
-    intervalID = setInterval(theCountdown, 600);
-    words = hardArray.slice();
-    randomize();
-});
-
-mixMode.addEventListener('click', function(e) {
-    buttonClicked = e.target.id;
-    reset();
-    mixResetCountdown();
-    input.focus();
-    intervalID = setInterval(theCountdown, 600);
-    words = allArrays.slice();
-    randomize();
-});
+}
 
 // If the word the user types in the input field is the 
 // same as the random word, the user gets a point and
@@ -82,21 +51,31 @@ input.addEventListener("input", function(e) {
     var num = this.value;
     if (num == randomWord) {
         userPoints++;
-        if (buttonClicked == 'easyMode') {
-            easyResetCountdown();
-        } else if (buttonClicked == 'mediumMode') {
-            mediumResetCountdown();
-        } else if (buttonClicked == 'hardMode') {
-            hardResetCountdown();
-        } else if (buttonClicked == 'mixMode') {
-            mixResetCountdown();
-        }
+        validation();
         clearInterval(intervalID);
         intervalID = setInterval(theCountdown, 600);
         input.value = '';
         randomize();
     }
 });
+
+
+function validation () {
+     if (buttonClicked == 'easyMode') {
+            words = easyArray.slice();
+            easyResetCountdown();
+        } else if (buttonClicked == 'mediumMode') {
+            words = mediumArray.slice();
+            mediumResetCountdown();
+        } else if (buttonClicked == 'hardMode') {
+            words = hardArray.slice();
+            hardResetCountdown();
+        } else if (buttonClicked == 'mixMode') {
+            words = allArrays.slice();
+            mixResetCountdown();
+        }
+     timer.innerHTML = timerNumber;
+}
 
 // Sets the default initial values
 function reset () {
@@ -120,28 +99,25 @@ the user depending on the difficulty*/
 function easyResetCountdown() {
     console.log('EASY!');
     timerNumber = 2;
-    timer.innerHTML = timerNumber;
+   
 
 }
 
 function mediumResetCountdown() {
     console.log('MEDIUM!');
     timerNumber = 3;
-    timer.innerHTML = timerNumber;
 
 }
 
 function hardResetCountdown() {
     console.log('HARD!');
     timerNumber = 4;
-    timer.innerHTML = timerNumber;
 
 }
 
 function mixResetCountdown() {
     console.log('MIX!');
     timerNumber = 4;
-    timer.innerHTML = timerNumber;
 
 }
 
