@@ -1,0 +1,26 @@
+{
+  "name": "the-writing-game",
+  "version": "1.0.0",
+  "description": "write words as fast as you can",
+  "main": "index.js",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EGYOMREY/The-Writing-Game.git"
+  },
+  "keywords": [
+    "writing",
+    "game"
+  ],
+  "author": "Eva Gyomrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EGYOMREY/The-Writing-Game/issues"
+  },
+  "homepage": "https://github.com/EGYOMREY/The-Writing-Game#readme",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
