@@ -14,19 +14,23 @@
     <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
+    <header>
     <h1>Writing game</h1>
-    <p>Choose the difficulty to start</p>
+    </header>
+    <main>
+      <p>Write down the words displayed to you!</p>
+    <p>Choose the difficulty to start:</p>
     <ul>
-      <li>Easy mode: words 4 letter long</li>
+      <li>Easy mode: 2 seconds time limit</li>
       <li>Medium mode: words 6 letter long</li>
       <li>Hard mode: words +7 letter long</li>
       <li>Mix them Up!: all the words mixed</li>
     </ul>
     <div class="buttonCenter">
-      <button id="easy">Easy</button>
-      <button id="medium">Medium</button>
-      <button id="hard">Hard</button>
-      <button id="mix">Mix them Up!</button>
+      <button id="easyMode">Easy</button>
+      <button id="mediumMode">Medium</button>
+      <button id="hardMode">Hard</button>
+      <button id="mixMode">Mix them Up!</button>
       
       <div class="container">
         <form >
@@ -35,7 +39,9 @@
         <div class="displayWord">
         </div>
         <div class="finalPoints"></div>
+        <div id="timer"></div>
       </div>
+      </main>
       
       <script src="js/app.js" async></script>
     </body>
