@@ -1,15 +1,14 @@
-
 //Our data
 var words = [];
 
-var easyArray = ["clerk", "log", "will", "inn", "acid", "child", "field", "jam", "blow", "cool", "tank", "chop", "folk", "plan", "bank", "frog", "poll", "rich", "toll", "home", "call", "toss", "long", "cart", "card", "yell", "real", "pork", "salt", "lace", "rung", "pier", "meat", "pace", "belt", "mail", "rate", "flag", "menu", "roll", "case", "star", "warn", "bean", "lean", "sale", "lift", "fork", "cane", "bear", "gaffe", "alarm", "handy", "close", "grace", "ivory", "pluck", "plane", "forge", "beard", "stick", "exile", "shark"];
+var easyModeArray = ["clerk", "log", "will", "inn", "acid", "child", "field", "jam", "blow", "cool", "tank", "chop", "folk", "plan", "bank", "frog", "poll", "rich", "toll", "home", "call", "toss", "long", "cart", "card", "yell", "real", "pork", "salt", "lace", "rung", "pier", "meat", "pace", "belt", "mail", "rate", "flag", "menu", "roll", "case", "star", "warn", "bean", "lean", "sale", "lift", "fork", "cane", "bear", "gaffe", "alarm", "handy", "close", "grace", "ivory", "pluck", "plane", "forge", "beard", "stick", "exile", "shark"];
 
 
-var mediumArray = ["export", "helmet", "notice", "tactic", "pepper", "review", "waiter", "senior", "reform", "stream", "redeem", "grudge", "credit", "absent", "bottom", "hiccup", "dignity", "discuss", "welfare", "trouble", "bedroom", "cabinet", "bedroom", "dismiss", "comment", "extract", "realize", "mystery", "outline", "radical", "applaud", "equinox", "genuine", "auction", "graphic", "limited", "recruit", "publish"];
+var mediumModeArray = ["export", "helmet", "notice", "tactic", "pepper", "review", "waiter", "senior", "reform", "stream", "redeem", "grudge", "credit", "absent", "bottom", "hiccup", "dignity", "discuss", "welfare", "trouble", "bedroom", "cabinet", "bedroom", "dismiss", "comment", "extract", "realize", "mystery", "outline", "radical", "applaud", "equinox", "genuine", "auction", "graphic", "limited", "recruit", "publish"];
 
-var hardArray = ["quotation", "privilege", "effective", "undertake", "offspring", "photocopy", "executive", "parameter", "important", "rebellion", "knowledge", "inflation", "promotion", "chemistry", "exception", "cigarette", "liability", "highlight", "communist", "pollution", "fireplace", "recognize", "housewife"];
+var hardModeArray = ["quotation", "privilege", "effective", "undertake", "offspring", "photocopy", "executive", "parameter", "important", "rebellion", "knowledge", "inflation", "promotion", "chemistry", "exception", "cigarette", "liability", "highlight", "communist", "pollution", "fireplace", "recognize", "housewife"];
 
-var allArrays = easyArray.concat(mediumArray, hardArray);
+var mixModeArray = easyModeArray.concat(mediumModeArray, hardModeArray);
 
 
 // Add a randomElement method so it's available to all arrays.
@@ -21,21 +20,20 @@ Array.prototype.randomElement = function() {
 // select the elements of the DOM we are going to use.
 var displayWord = document.querySelector('.displayWord');
 var input = document.querySelector('#input');
-var easyMode = document.querySelector("#easyMode");
-var mediumMode = document.querySelector("#mediumMode");
-var hardMode = document.querySelector("#hardMode");
-var mixMode = document.querySelector('#mixMode');
 var finalPoints = document.querySelector('.finalPoints');
 var timer = document.querySelector('#timer');
+var showScore = document.querySelector('#showScore');
 
 var randomWord;
 var userPoints;
 var timerNumber;
 var intervalID;
 var buttonClicked;
+var score = 0;
+var highscore = localStorage.getItem("highscore");
+ showScore.innerHTML = localStorage.highscore;
 
-
-function beginGame (e){
+function beginGame(e) {
     buttonClicked = e.target.id;
     reset();
     validation();
@@ -59,26 +57,27 @@ input.addEventListener("input", function(e) {
     }
 });
 
-
-function validation () {
-     if (buttonClicked == 'easyMode') {
-            words = easyArray.slice();
-            easyResetCountdown();
-        } else if (buttonClicked == 'mediumMode') {
-            words = mediumArray.slice();
-            mediumResetCountdown();
-        } else if (buttonClicked == 'hardMode') {
-            words = hardArray.slice();
-            hardResetCountdown();
-        } else if (buttonClicked == 'mixMode') {
-            words = allArrays.slice();
-            mixResetCountdown();
-        }
-     timer.innerHTML = timerNumber;
+//validate which difficulty was selected according to the button's id.
+// it sets which array it's going to be displayed and the time limit
+function validation() {
+    if (buttonClicked == 'easyMode') {
+        words = easyModeArray.slice();
+        timerNumber = 2;
+    } else if (buttonClicked == 'mediumMode') {
+        words = mediumModeArray.slice();
+        timerNumber = 3;
+    } else if (buttonClicked == 'hardMode') {
+        words = hardModeArray.slice();
+        timerNumber = 4;
+    } else if (buttonClicked == 'mixMode') {
+        words = mixModeArray.slice();
+        timerNumber = 4;
+    }
+    timer.innerHTML = timerNumber;
 }
 
 // Sets the default initial values
-function reset () {
+function reset() {
     clearInterval(intervalID);
     input.value = '';
     input.disabled = false;
@@ -88,38 +87,11 @@ function reset () {
 }
 
 // Generates a new random word and writes it on the DOM
-function randomize () {
+function randomize() {
     randomWord = words.randomElement();
     displayWord.innerHTML = randomWord;
 }
 
-/*
-This functions resets the timer that is displayed to
-the user depending on the difficulty*/
-function easyResetCountdown() {
-    console.log('EASY!');
-    timerNumber = 2;
-   
-
-}
-
-function mediumResetCountdown() {
-    console.log('MEDIUM!');
-    timerNumber = 3;
-
-}
-
-function hardResetCountdown() {
-    console.log('HARD!');
-    timerNumber = 4;
-
-}
-
-function mixResetCountdown() {
-    console.log('MIX!');
-    timerNumber = 4;
-
-}
 
 /* TIMER FUNCTION */
 // this function works as a timer, every time it's executed, 
@@ -131,10 +103,26 @@ function theCountdown() {
     if (timerNumber == 1) {
         timer.style.display = "none";
         input.disabled = true;
-        finalPoints.innerHTML = "Final Points: " + userPoints;
+        score = userPoints * 100;
+        finalPoints.innerHTML = "Final Points: " + score;
         clearInterval(intervalID);
+        saveHighScore();
     } else {
         timerNumber--;
         timer.innerHTML = timerNumber;
     }
+}
+
+
+
+function saveHighScore() {
+    if (highscore !== null) {
+        if (score > highscore) {
+            localStorage.setItem("highscore", score);
+        }
+    } else {
+        localStorage.getItem("highscore");
+    }
+
+    showScore.innerHTML = localStorage.highscore;
 }
