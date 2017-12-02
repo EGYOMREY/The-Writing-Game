@@ -1,52 +1,53 @@
 body{
-	background-color: lightslategrey;
-	font-family: Raleway;
+	margin: 0;
+	padding: 0;
+	background-color: #242423;
+	color: #E8EDDF;
+	font-size: 1.5rem;
+	font-family: 'Raleway';
 	text-align: center;
-	font-size: 1.2rem;
-	font-weight: bold;
+	
 }
 
 ul{
 	list-style: none;
 }
 
-.container {
-    width: 90vw;
-    margin: auto;
+.header{
+	color: #F5CB5C;
+	font-size: 3rem;
 
 }
 
-.buttonCenter{
-	position: relative;
-	margin: auto;
+.header h1{
+	margin: 0.3em ;
+	padding: 0;
 }
-
-button {
-	border:  none;
+.btn{
+	border: none;
+	color: #E8EDDF;
+	background-color: #333533;
+	
+	font-size: 1.4rem;
 	padding: 1em;
-	margin: 0.5em;
-	background-color: lightsalmon;
-	color: brown;
-	font-size: 1.1em;
-	border-radius: 8px;
-	
 	cursor: pointer;
+	margin: 0 0.1em;
+	color: #F5CB5C;
+	text-transform: uppercase;
+	border-radius: 14px;
+	border:  1px solid white;
+
 }
 
-form {
-	position: relative;
-	
-	margin: auto;
-}
+.btn:hover{
+	color: #F5CB5C;
+	background-color: #242423;
 
+}
 
 #input{
-	padding: 1em;
-	border-radius: 8px;
-	margin: auto;
+	padding: 0.5em;
+	 font-size: 2rem;
+	 margin: 0.6em;
 }
 
-.displayWord{
-	padding: 1em;
-	
-}
