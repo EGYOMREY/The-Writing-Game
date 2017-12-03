@@ -1,60 +1,103 @@
 html {
-  font-family: sans-serif;
-  line-height: 1.15; /* 2 */
-  -ms-text-size-adjust: 100%; /* 3 */
-  -webkit-text-size-adjust: 100%; /* 3 */
+    font-family: sans-serif;
+    line-height: 1.15;
+    /* 2 */
+    -ms-text-size-adjust: 100%;
+    /* 3 */
+    -webkit-text-size-adjust: 100%;
+    /* 3 */
 }
 
-body{
-	margin: 0;
-	padding: 0;
-	background-color: #242423;
-	color: #E8EDDF;
-	font-size: 1.5rem;
-	font-family: 'Raleway';
-	text-align: center;
-	
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #242423;
+    color: #E8EDDF;
+    font-size: 1.1rem;
+    font-family: 'Raleway';
+    text-align: center;
 }
 
-ul{
-	list-style: none;
+p {
+	padding: 0.2em;
 }
 
-.header{
-	color: #F5CB5C;
-	font-size: 2.5rem;
-
+ul {
+    list-style: none;
+    padding: 0.2em;
+    margin: 0;
 }
 
-.header h1{
-	margin: 0.3em ;
-	padding: 0;
+
+
+.header h1 {
+    padding: 0;
+    color: #F5CB5C;
+    font-size: 2rem;
 }
-.btn{
-	border: none;
-	color: #E8EDDF;
-	background-color: #333533;
-	
-	font-size: 1.4rem;
+
+.header p{
 	padding: 1em;
-	cursor: pointer;
-	margin: 0 0.1em;
-	color: #F5CB5C;
-	text-transform: uppercase;
-	border-radius: 14px;
-	border:  1px solid white;
-
 }
 
-.btn:hover{
-	color: #F5CB5C;
-	background-color: #242423;
-
+.btn {
+    border: none;
+    color: #E8EDDF;
+    background-color: #333533;
+    font-size: 1.4rem;
+    padding: 1em;
+    cursor: pointer;
+    margin: 0 0.1em;
+    color: #F5CB5C;
+    text-transform: uppercase;
+    border-radius: 14px;
+    border: 1px solid white;
 }
 
-#input{
-	padding: 0.5em;
-	 font-size: 2rem;
-	 margin: 0.6em;
+.btn:hover {
+    color: #F5CB5C;
+    background-color: #242423;
 }
 
+#input {
+    padding: 0.2em;
+    font-size: 1rem;
+    margin: 0.6em;
+}
+
+.scoreDiv {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    color: #F5CB5C;
+}
+
+.scoreDiv p {
+    margin: 0;
+    padding: 0 1em;
+}
+
+.choices-block {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 780px) {
+
+    body {
+        font-size: 1.5rem;
+    }
+
+    .header h1 {
+        margin: 0.3em;
+        padding: 0;
+        color: #F5CB5C;
+        font-size: 4rem;
+    }
+
+
+    .choices-block {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

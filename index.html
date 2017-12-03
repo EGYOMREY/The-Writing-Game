@@ -16,16 +16,24 @@
     <![endif]-->
     <header class="header">
       <h1> The Writing game</h1>
+      <p>Write down the words displayed to you!</p>
     </header>
     <main>
-      <p>Write down the words displayed to you!</p>
-      <p>Choose the difficulty to start:</p>
+      
+      
+      <div class="scoreDiv">
+        <p>Highest score:</p>
+        <p id="showScore"></p>
+      </div>
+      <div class="choices-block">
+        <p>Choose the difficulty to start:</p>
       <ul>
         <li>Easy mode: 2 seconds time limit</li>
         <li>Medium mode: 3 seconds time limit</li>
         <li>Hard mode: 4 seconds time limit</li>
         <li>Mix: 4 seconds time limit</li>
       </ul>
+      </div>
       <button id="easyMode" class="btn" onclick="beginGame(event)">Easy</button>
       <button id="mediumMode" class="btn" onclick="beginGame(event)">Medium</button>
       <button id="hardMode" class="btn" onclick="beginGame(event)">Hard</button>
