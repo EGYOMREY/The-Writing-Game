@@ -29,9 +29,8 @@ var userPoints;
 var timerNumber;
 var intervalID;
 var buttonClicked;
-var score = 0;
-var highscore = localStorage.getItem("highscore");
- showScore.innerHTML = localStorage.highscore;
+var score;
+
 
 function beginGame(e) {
     buttonClicked = e.target.id;
@@ -48,7 +47,7 @@ function beginGame(e) {
 input.addEventListener("input", function(e) {
     var num = this.value;
     if (num == randomWord) {
-        userPoints++;
+        userPoints += 100;
         validation();
         clearInterval(intervalID);
         intervalID = setInterval(theCountdown, 600);
@@ -100,29 +99,29 @@ function randomize() {
 // to the user. Else: it substracts the timerNumber by 1 and displayed
 // to ther user
 function theCountdown() {
+    score = userPoints;
+    if (score > window.localStorage.getItem("highscore")) {
+        window.localStorage.setItem("highscore", score);
+    }
     if (timerNumber == 1) {
         timer.style.display = "none";
         input.disabled = true;
-        score = userPoints * 100;
-        finalPoints.innerHTML = "Final Points: " + score;
+        finalPoints.innerHTML = "Current Score: " + score;
         clearInterval(intervalID);
         saveHighScore();
     } else {
         timerNumber--;
         timer.innerHTML = timerNumber;
+
     }
 }
 
 
 
 function saveHighScore() {
-    if (highscore !== null) {
-        if (score > highscore) {
-            localStorage.setItem("highscore", score);
-        }
-    } else {
-        localStorage.getItem("highscore");
+    if (window.localStorage.getItem("highscore") != null) {
+        showScore.innerHTML = window.localStorage.getItem("highscore");
+    } else if (window.localStorage.getItem("highscore") == 0) {
+        showScore.innerHTML = 0;
     }
-
-    showScore.innerHTML = localStorage.highscore;
 }
