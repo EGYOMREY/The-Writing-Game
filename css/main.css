@@ -1,10 +1,13 @@
 html {
     font-family: sans-serif;
     line-height: 1.15;
+
     /* 2 */
     -ms-text-size-adjust: 100%;
+
     /* 3 */
     -webkit-text-size-adjust: 100%;
+
     /* 3 */
 }
 
@@ -13,13 +16,13 @@ body {
     padding: 0;
     background-color: #242423;
     color: #E8EDDF;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: 'Raleway';
     text-align: center;
 }
 
 p {
-	padding: 0.2em;
+    padding: 0.2em;
 }
 
 ul {
@@ -35,7 +38,7 @@ ul {
     font-size: 2rem;
 }
 
-.choices-block p{
+.choices-block p {
     padding: 0;
 }
 
@@ -76,9 +79,7 @@ ul {
     padding: 0 1em;
 }
 
-
 @media screen and (min-width: 780px) {
-
     body {
         font-size: 1.5rem;
     }
@@ -89,7 +90,4 @@ ul {
         color: #F5CB5C;
         font-size: 4rem;
     }
-
-
-    
 }
