@@ -11,6 +11,11 @@ Depending on the difficulty you will have a time limit to write down the display
 Try it with this direct link:
 [Direct Link](https://egyomrey.github.io/The-Writing-Game/)
 
-or clone/download this repository and execute the `index.html` file.
+
+## How to use this project
+- To clone this repository with Git type in your console `git clone https://github.com/EGYOMREY/Portfolio.git`
+- You can also download the code by pressing the button **Clone or Download** and then **Download ZIP**
+
+- To open it, go to the project's folder and execute the `index.html` file.
 
 - Made with vanilla js
