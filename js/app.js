@@ -13,7 +13,7 @@ var mixModeArray = easyModeArray.concat(mediumModeArray, hardModeArray);
 
 // --Add randomElement method for all arrays to use-- //
 Array.prototype.randomElement = function() {
-    return this[Math.floor(Math.random() * this.length)]
+    return this[Math.floor(Math.random() * this.length)];
 };
 
 // --Word displayed to the user-- //
@@ -57,7 +57,7 @@ function beginGame(e) {
 // a random word from the selected array again-- //
 input.addEventListener("input", function(e) {
     var num = this.value;
-    if (num == randomWord) {
+    if (num === randomWord) {
         userPoints += 100;
         validation();
         clearInterval(intervalID);
@@ -69,16 +69,16 @@ input.addEventListener("input", function(e) {
 
 // --Validates the user's selection and also displays the initial time of the chosen difficulty-- //
 function validation() {
-    if (buttonClicked == 'easyMode') {
+    if (buttonClicked === 'easyMode') {
         words = easyModeArray.slice();
         timerNumber = 3;
-    } else if (buttonClicked == 'mediumMode') {
+    } else if (buttonClicked === 'mediumMode') {
         words = mediumModeArray.slice();
         timerNumber = 3;
-    } else if (buttonClicked == 'hardMode') {
+    } else if (buttonClicked === 'hardMode') {
         words = hardModeArray.slice();
         timerNumber = 4;
-    } else if (buttonClicked == 'mixMode') {
+    } else if (buttonClicked === 'mixMode') {
         words = mixModeArray.slice();
         timerNumber = 4;
     }
@@ -116,7 +116,7 @@ function theCountdown() {
         window.localStorage.setItem("highscore", userPoints);
         showScore.innerHTML = window.localStorage.getItem("highscore");
     }
-    if (timerNumber == 1) {
+    if (timerNumber == 0) {
         timer.style.display = "none";
         input.disabled = true;
         finalPoints.innerHTML = "Current Score: " + userPoints;
@@ -131,9 +131,9 @@ function theCountdown() {
 
 // --Shows the high scores to the user-- //
 function saveHighScore() {
-    if (window.localStorage.getItem("highscore") != null) {
+    if (window.localStorage.getItem("highscore") !== null) {
         showScore.innerHTML = window.localStorage.getItem("highscore");
-    } else if (window.localStorage.getItem("highscore") == 0) {
+    } else if (window.localStorage.getItem("highscore") === 0) {
         showScore.innerHTML = 0;
     }
 }
