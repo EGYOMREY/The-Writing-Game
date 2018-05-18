@@ -1,5 +1,7 @@
 # The-Writing-Game
-Write the displayed words as fast as you can and earn points! Choose between easy, medium, hard and mix mode!
+Write the displayed words as fast as you can and earn points! Choose between easy, medium, hard and mix mode [Try it](https://egyomrey.github.io/The-Writing-Game/) :arrow_upper_right:
+
+![image](https://i.imgur.com/Wi782AD.png)
 
 ### How to play: 
 Depending on the difficulty you will have a time limit to write down the displayed word: 
@@ -7,10 +9,6 @@ Depending on the difficulty you will have a time limit to write down the display
 - Medium mode: 3 seconds time limit
 - Hard mode: 4 seconds time limit
 - Mix: 4 seconds time limit
-
-Try it with this direct link:
-[Direct Link](https://egyomrey.github.io/The-Writing-Game/)
-
 
 ## How to use this project
 - To clone this repository with Git type in your console `git clone https://github.com/EGYOMREY/Portfolio.git`
